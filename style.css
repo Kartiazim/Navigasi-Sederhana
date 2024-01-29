@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  background-color: rgb(46, 172, 153);
+  justify-content: space-around;
+  /* padding: 20px 0; */
+  height: 40px;
+  align-items: center;
+  color: black;
+  font-family: "Pacifico", cursive;
+}
+
+/* Logo */
+nav .logo {
+  letter-spacing: 4px;
+}
+
+/* unlist */
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  transition: 1s;
+}
+
+/* list link */
+ul a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.9em;
+}
+
+ul a:hover {
+  font-weight: bold;
+  color: rgb(24, 24, 24);
+}
+
+/* Humber Menu */
+.menu-toggle {
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  display: none;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  z-index: 1;
+  width: 40px;
+  height: 35px;
+  opacity: 0;
+  transform: translate(-6px, -7px);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(36, 35, 35);
+  border-radius: 5px;
+  transition: 0.6s;
+}
+
+/* menu animation */
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform-origin: 0 -2px;
+  transform: rotate(45deg);
+  background-color: rgb(0, 100, 100);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+  background-color: rgb(0, 100, 100);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform-origin: 0 4px;
+  transform: rotate(-45deg);
+  background-color: rgb(0, 100, 100);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  nav ul {
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 0;
+    right: -50%;
+    height: 100vh;
+    background-color: rgb(46, 172, 153);
+    z-index: -1;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul.slide {
+    right: 0;
+  }
+}
